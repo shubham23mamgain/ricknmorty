@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Home from "./components/Home";
-import Default from "./components/Default";
-import Navbar from "./components/Navbar";
-import AllEpisodes from "./AllEpisodes";
+import Home from "./Home";
+import Default from "./Default";
+import Navbar from "./Navbar";
+import MultipledEpisodes from "./MultipledEpisodes";
 import { Route, Switch } from "react-router-dom";
-import Search from "./components/Search";
-import Episode from "./components/Episode";
-import SearchBar from "./components/SearchBar";
+import Search from "./Search";
 
-import "./App.css";
-import Episodes from "./components/Episodes";
-import SingleEpisode from "./components/SingleEpisode";
+import Episodes from "./Episodes";
+import SingleEpisode from "./SingleEpisode";
 
-class App extends Component {
+class App4 extends Component {
   state = {
     episodes: [],
     search: "",
@@ -47,24 +44,15 @@ class App extends Component {
           <Route
             path="/episode"
             exact
-            render={(props) => (
-              <AllEpisodes
+            render={() => (
+              <MultipledEpisodes
                 episodes={this.state.episodes}
-                search={this.state.search}
                 loading={this.state.loading}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                {...props}
               />
             )}
           />
 
-          <Route
-            path="/episode/:id"
-            render={(props) => (
-              <SingleEpisode loading={this.state.loading} {...props} />
-            )}
-          />
+          <Route path="/episode/:id" render={() => <SingleEpisode />} />
           <Route
             path="/episodeses"
             render={() => (
@@ -96,4 +84,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App4;
